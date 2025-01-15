@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil Güncelleme</title>
+    <link rel="stylesheet" href="profil.css">
+</head>
+
+<body>
+    <div class="container">
+        <h2>Profil Bilgilerini Güncelle</h2>
+        
+
+        <a href="index.html" class="home-link">Ana Sayfaya Git</a>
+
+        <form id="profile-form">
+            <div class="form-group">
+                <label for="email">Mail Adresi</label>
+                <input type="email" id="email" name="email" class="form-control" placeholder="E-posta adresinizi girin" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Yeni Parola</label>
+                <input type="password" id="password" name="password" class="form-control" placeholder="Yeni şifrenizi girin" required>
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Parola Tekrar</label>
+                <input type="password" id="confirm-password" name="confirm-password" class="form-control" placeholder="Şifrenizi tekrar girin" required>
+            </div>
+            <div class="form-group">
+                <label for="name">Ad Soyad</label>
+                <input type="text" id="name" name="name" class="form-control" placeholder="Ad Soyad" value="Ömer Şerif Fasal" required>
+            </div>
+            <div class="form-group">
+                <label for="dob">Doğum Tarihi</label>
+                <input type="date" id="dob" name="dob" class="form-control" value="1990-01-01" required>
+            </div>
+            <button type="submit" class="btn">Güncelle</button>
+            <p id="error-message" class="error-message"></p>
+        </form>
+    </div>
+
+    <script src="profil.js"></script>
+</body>
+
+</html>

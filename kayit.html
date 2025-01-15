@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kayıt Ol</title>
+  <link rel="stylesheet" href="kayit.css"> 
+</head>
+<body>
+  <div class="container">
+    <h2>Kullanıcı Kaydı</h2>
+    <form id="registrationForm" action="#" method="POST">
+      <label for="email">E-posta Adresi:</label>
+      <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required>
+      
+      <label for="name">Ad Soyad:</label>
+      <input type="text" id="name" name="name" placeholder="Adınızı ve soyadınızı girin" required>
+      
+      <label for="dob">Doğum Tarihi:</label>
+      <input type="date" id="dob" name="dob" required>
+      
+      <label for="password">Parola:</label>
+      <input type="password" id="password" name="password" placeholder="Parolanızı girin" required>
+      
+      <label for="confirmPassword">Parola Tekrarı:</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Parolayı tekrar girin" required>
+      
+      <button type="submit">Kaydol</button>
+    </form>
+    <div id="error-message"></div>
+
+
+    <div class="links">
+      <p>Hesabınız var mı? <a href="giris.html">Giriş Yap</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      let email = document.getElementById('email').value;
+      let name = document.getElementById('name').value;
+      let dob = document.getElementById('dob').value;
+      let password = document.getElementById('password').value;
+      let confirmPassword = document.getElementById('confirmPassword').value;
+      let errorMessage = '';
+      
+
+      let emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+      if (!emailPattern.test(email)) {
+        errorMessage += 'Geçerli bir e-posta adresi giriniz. <br>';
+      }
+      
+  
+      let passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$/;
+      if (!passwordPattern.test(password)) {
+        errorMessage += 'Parola en az 8 karakter, bir büyük harf ve bir rakam içermelidir. <br>';
+      }
+      
+
+      if (password !== confirmPassword) {
+        errorMessage += 'Parolalar eşleşmiyor. <br>';
+      }
+      
+
+      if (!email || !name || !dob || !password || !confirmPassword) {
+        errorMessage += 'Tüm alanlar doldurulmalıdır. <br>';
+      }
+      
+
+      if (errorMessage) {
+        document.getElementById('error-message').innerHTML = errorMessage;
+      } else {
+        document.getElementById('error-message').innerHTML = '';
+        alert('Kayıt başarıyla tamamlandı!');
+        
+
+        setTimeout(function() {
+          window.location.href = 'index.html';
+        }, 500); 
+      }
+    });
+  </script>
+</body>
+</html>

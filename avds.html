@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ağız ve Diş Sağlığı</title>
+    <link rel="stylesheet" href="avds.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="home-link">Ana Sayfaya Git</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="tabs">
+            <button class="tab-button active" id="tab-status">Durum</button>
+            <button class="tab-button" id="tab-target">Hedef</button>
+        </div>
+
+        <div class="tab-content active" id="status-tab">
+            <h2>Durum</h2>
+            <div class="goal-summary">
+                <h3>Son 7 Gün İçindeki Veriler</h3>
+               
+                <ul id="goal-list">
+                   
+                </ul>
+            </div>
+
+            <div class="goal-form">
+                <h3>Hedef Bilgileri</h3>
+                <form id="goal-form">
+                    <input type="date" placeholder="Tarih" required>
+                    <input type="time" placeholder="Saat" required>
+                    <input type="text" placeholder="Süre" required>
+                    <label>
+                        <input type="checkbox"> Uygulandı
+                    </label>
+                    <textarea placeholder="Açıklama"></textarea>
+                    <input type="file" accept="image/*">
+                    <button type="submit">Kaydet</button>
+                </form>
+            </div>
+
+            <div class="suggestions">
+                <h3>Ağız ve Diş Sağlığı Önerisi</h3>
+                <p id="suggestion-text">Burada öneri yer alacak</p>
+            </div>
+        </div>
+
+   
+        <div class="tab-content" id="target-tab">
+            <h2>Hedefler</h2>
+            <div class="goal-list">
+                <ul id="goal-list">
+             
+                </ul>
+            </div>
+
+            <div class="new-goal-form">
+                <h3>Yeni Hedef Ekle</h3>
+                <form id="new-goal-form">
+                    <input type="text" placeholder="Başlık" required>
+                    <textarea placeholder="Açıklama" required></textarea>
+                    <input type="text" placeholder="Periyot (örn. Günde bir)" required>
+                    <select required>
+                        <option value="low">Düşük</option>
+                        <option value="medium">Orta</option>
+                        <option value="high">Yüksek</option>
+                    </select>
+                    <button type="submit">Hedefi Kaydet</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+       
+        document.getElementById('goal-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            document.getElementById('suggestion-text').textContent = 'Herhangi bir önerimiz yok.';
+        });
+    </script>
+</body>
+
+</html>
